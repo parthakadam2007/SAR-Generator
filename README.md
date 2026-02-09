@@ -1,4 +1,6 @@
-sar-platform/
+SAR-GENERATOR
+
+SAR-Generator/
 │
 ├── README.md
 ├── package.json              # Root scripts (optional - turborepo/nx)
@@ -54,64 +56,3 @@ sar-platform/
 │   │   ├── main.py
 │   │   ├── Dockerfile
 │   │   └── requirements.txt
-│   │
-│   ├── auth-service/         # Auth/RBAC (Optional)
-│   │   ├── src/
-│   │   ├── Dockerfile
-│   │   └── config/
-│   │
-│   ├── audit-service/        # Logs + Lineage
-│   │   ├── logger/
-│   │   ├── storage/
-│   │   ├── Dockerfile
-│   │   └── main.py
-│   │
-│   ├── ingestion-service/    # ETL / Bank APIs
-│   │   ├── connectors/
-│   │   ├── workers/
-│   │   ├── Dockerfile
-│   │   └── main.py
-│   │
-│   └── shared/               # Shared Libs
-│       ├── schemas/          # JSON Schemas
-│       ├── proto/            # gRPC (optional)
-│       ├── utils/
-│       └── constants/
-│
-├── infra/                    # Infrastructure
-│   │
-│   ├── docker/
-│   │   ├── docker-compose.yml
-│   │   └── base-images/
-│   │
-│   ├── k8s/
-│   │   ├── namespaces/
-│   │   ├── frontend/
-│   │   ├── api-gateway/
-│   │   ├── main-service/
-│   │   ├── python-ai/
-│   │   ├── llm/
-│   │   ├── postgres/
-│   │   ├── kafka/
-│   │   └── redis/
-│   │
-│   ├── helm/                 # Optional
-│   │   └── sar-chart/
-│   │
-│   └── terraform/            # Optional (Cloud)
-│
-├── scripts/                  # DevOps tools
-│   ├── build-all.sh
-│   ├── deploy.sh
-│   └── seed-db.py
-│
-├── docs/                     # Documentation
-│   ├── architecture.md
-│   ├── api-spec.yaml
-│   ├── threat-model.md
-│   └── adr/
-│
-└── tests/                    # Integration Tests
-    ├── e2e/
-    ├── load/
-    └── security/
