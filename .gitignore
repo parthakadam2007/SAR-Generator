@@ -22,3 +22,67 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python cache/compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Credentials and sensitive files
+/venv
+venv/
+
+*.env
+*.env.local
+.environments
+*env.development
+*env.production
+
+.env
+.env.local
+.environments
+.env.development
+.env.production
+
+
+# Ignore virtual environments
+venv/
+env/
+*.venv
+
+# Node.js (if applicable)
+node_modules/
+
+# DB, logs, PDFs, temp files
+*.log
+*.tmp
+
+*.pdf
+
+
+*tempCodeRunnerFile.py
+# IDE and system files
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+uploads/
+
