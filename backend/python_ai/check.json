@@ -1,0 +1,353 @@
+{
+  "case_id": "CASE_2026_FALSE_0091",
+  "generated_at": "2026-02-11T13:10:00Z",
+  "institution": "Demo National Bank",
+
+  "customer_kyc": {
+    "customer_id": "CUST774411",
+    "full_name": "Neha Gupta",
+    "dob": "1987-05-23",
+    "pan": "BNMGH8821Q",
+    "aadhaar_last4": "5521",
+    "occupation": "Freelance IT Consultant",
+    "declared_annual_income": 3200000,
+    "risk_category": "Low",
+    "address": "Bangalore, Karnataka, India",
+    "kyc_last_updated": "2025-11-02"
+  },
+
+  "account_profile": {
+    "account_number": "XXXX3344",
+    "account_type": "Savings",
+    "opened_date": "2016-09-18",
+    "average_monthly_balance": 420000,
+    "average_monthly_credit": 580000,
+    "average_monthly_debit": 550000,
+    "usual_transaction_pattern": "Consulting income + vendor payments + family transfers"
+  },
+
+  "alerts": [
+    {
+      "alert_id": "ALERT_FP_01",
+      "type": "High Velocity Transfers",
+      "description": "Multiple large transactions in short window",
+      "trigger_time": "2026-02-10T16:00:00Z",
+      "severity": "Medium"
+    }
+  ],
+
+  "transactions": [
+    {"tx_id": "F1", "timestamp": "2026-02-01T09:00:00Z", "from_account": "CLIENT_A", "to_account": "XXXX3344", "amount": 450000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "F2", "timestamp": "2026-02-01T10:30:00Z", "from_account": "XXXX3344", "to_account": "RENT", "amount": 60000, "currency": "INR", "channel": "UPI", "country": "India"},
+    {"tx_id": "F3", "timestamp": "2026-02-01T11:10:00Z", "from_account": "XXXX3344", "to_account": "UTILITY", "amount": 12000, "currency": "INR", "channel": "UPI", "country": "India"},
+
+    {"tx_id": "F4", "timestamp": "2026-02-02T09:05:00Z", "from_account": "CLIENT_B", "to_account": "XXXX3344", "amount": 520000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "F5", "timestamp": "2026-02-02T11:00:00Z", "from_account": "XXXX3344", "to_account": "FAMILY_1", "amount": 100000, "currency": "INR", "channel": "UPI", "country": "India"},
+    {"tx_id": "F6", "timestamp": "2026-02-02T11:30:00Z", "from_account": "XXXX3344", "to_account": "FAMILY_2", "amount": 80000, "currency": "INR", "channel": "UPI", "country": "India"},
+
+    {"tx_id": "F7", "timestamp": "2026-02-03T08:40:00Z", "from_account": "CLIENT_C", "to_account": "XXXX3344", "amount": 610000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "F8", "timestamp": "2026-02-03T09:15:00Z", "from_account": "XXXX3344", "to_account": "VENDOR_A", "amount": 220000, "currency": "INR", "channel": "RTGS", "country": "India"},
+    {"tx_id": "F9", "timestamp": "2026-02-03T10:00:00Z", "from_account": "XXXX3344", "to_account": "VENDOR_B", "amount": 150000, "currency": "INR", "channel": "RTGS", "country": "India"},
+
+    {"tx_id": "F10", "timestamp": "2026-02-04T09:00:00Z", "from_account": "CLIENT_D", "to_account": "XXXX3344", "amount": 480000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "F11", "timestamp": "2026-02-04T10:30:00Z", "from_account": "XXXX3344", "to_account": "INVESTMENT_FUND", "amount": 300000, "currency": "INR", "channel": "Online", "country": "India"},
+
+    {"tx_id": "F12", "timestamp": "2026-02-05T09:00:00Z", "from_account": "CLIENT_E", "to_account": "XXXX3344", "amount": 530000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "F13", "timestamp": "2026-02-05T10:10:00Z", "from_account": "XXXX3344", "to_account": "TAX_PAYMENT", "amount": 180000, "currency": "INR", "channel": "Online", "country": "India"},
+
+    {"tx_id": "F14", "timestamp": "2026-02-06T08:55:00Z", "from_account": "CLIENT_F", "to_account": "XXXX3344", "amount": 510000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "F15", "timestamp": "2026-02-06T09:30:00Z", "from_account": "XXXX3344", "to_account": "SCHOOL_FEES", "amount": 95000, "currency": "INR", "channel": "UPI", "country": "India"},
+
+    {"tx_id": "F16", "timestamp": "2026-02-07T08:45:00Z", "from_account": "CLIENT_G", "to_account": "XXXX3344", "amount": 490000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "F17", "timestamp": "2026-02-07T10:20:00Z", "from_account": "XXXX3344", "to_account": "TRAVEL", "amount": 120000, "currency": "INR", "channel": "Card", "country": "India"},
+
+    {"tx_id": "F18", "timestamp": "2026-02-08T09:00:00Z", "from_account": "CLIENT_H", "to_account": "XXXX3344", "amount": 550000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F19", "timestamp": "2026-02-08T11:00:00Z", "from_account": "XXXX3344", "to_account": "US_VENDOR", "amount": 280000, "currency": "INR", "channel": "SWIFT", "country": "USA"},
+
+    {"tx_id": "F20", "timestamp": "2026-02-08T12:30:00Z", "from_account": "XXXX3344", "to_account": "FAMILY_3", "amount": 70000, "currency": "INR", "channel": "UPI", "country": "India"},
+
+    {"tx_id": "F21", "timestamp": "2026-02-09T09:00:00Z", "from_account": "CLIENT_I", "to_account": "XXXX3344", "amount": 500000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "F22", "timestamp": "2026-02-09T10:00:00Z", "from_account": "XXXX3344", "to_account": "INVESTMENT_2", "amount": 350000, "currency": "INR", "channel": "Online", "country": "India"},
+
+    {"tx_id": "F23", "timestamp": "2026-02-09T11:00:00Z", "from_account": "XXXX3344", "to_account": "CHARITY", "amount": 20000, "currency": "INR", "channel": "UPI", "country": "India"},
+
+    {"tx_id": "F24", "timestamp": "2026-02-10T09:00:00Z", "from_account": "CLIENT_J", "to_account": "XXXX3344", "amount": 470000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F25", "timestamp": "2026-02-10T09:20:00Z", "from_account": "XXXX3344", "to_account": "GROCERY", "amount": 15000, "currency": "INR", "channel": "Card", "country": "India"},
+
+    {"tx_id": "F26", "timestamp": "2026-02-10T10:00:00Z", "from_account": "CLIENT_K", "to_account": "XXXX3344", "amount": 520000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F27", "timestamp": "2026-02-10T11:00:00Z", "from_account": "XXXX3344", "to_account": "INSURANCE", "amount": 180000, "currency": "INR", "channel": "Online", "country": "India"},
+
+    {"tx_id": "F28", "timestamp": "2026-02-10T12:00:00Z", "from_account": "CLIENT_L", "to_account": "XXXX3344", "amount": 500000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F29", "timestamp": "2026-02-10T13:00:00Z", "from_account": "XXXX3344", "to_account": "MEDICAL", "amount": 45000, "currency": "INR", "channel": "UPI", "country": "India"},
+
+    {"tx_id": "F30", "timestamp": "2026-02-10T14:00:00Z", "from_account": "CLIENT_M", "to_account": "XXXX3344", "amount": 530000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F31", "timestamp": "2026-02-10T15:00:00Z", "from_account": "XXXX3344", "to_account": "VENDOR_C", "amount": 210000, "currency": "INR", "channel": "RTGS", "country": "India"},
+
+    {"tx_id": "F32", "timestamp": "2026-02-10T16:00:00Z", "from_account": "CLIENT_N", "to_account": "XXXX3344", "amount": 510000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F33", "timestamp": "2026-02-10T17:00:00Z", "from_account": "XXXX3344", "to_account": "SAVINGS_TRANSFER", "amount": 400000, "currency": "INR", "channel": "Online", "country": "India"},
+
+    {"tx_id": "F34", "timestamp": "2026-02-10T18:00:00Z", "from_account": "CLIENT_O", "to_account": "XXXX3344", "amount": 490000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F35", "timestamp": "2026-02-10T19:00:00Z", "from_account": "XXXX3344", "to_account": "CREDIT_CARD", "amount": 120000, "currency": "INR", "channel": "Online", "country": "India"},
+
+    {"tx_id": "F36", "timestamp": "2026-02-10T20:00:00Z", "from_account": "CLIENT_P", "to_account": "XXXX3344", "amount": 520000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F37", "timestamp": "2026-02-10T21:00:00Z", "from_account": "XXXX3344", "to_account": "INVESTMENT_3", "amount": 300000, "currency": "INR", "channel": "Online", "country": "India"},
+
+    {"tx_id": "F38", "timestamp": "2026-02-10T22:00:00Z", "from_account": "CLIENT_Q", "to_account": "XXXX3344", "amount": 500000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F39", "timestamp": "2026-02-10T22:30:00Z", "from_account": "XXXX3344", "to_account": "UTILITY_2", "amount": 18000, "currency": "INR", "channel": "UPI", "country": "India"},
+
+    {"tx_id": "F40", "timestamp": "2026-02-10T23:00:00Z", "from_account": "CLIENT_R", "to_account": "XXXX3344", "amount": 520000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F41", "timestamp": "2026-02-11T08:00:00Z", "from_account": "XXXX3344", "to_account": "BUSINESS_EXPENSE", "amount": 260000, "currency": "INR", "channel": "RTGS", "country": "India"},
+
+    {"tx_id": "F42", "timestamp": "2026-02-11T09:00:00Z", "from_account": "CLIENT_S", "to_account": "XXXX3344", "amount": 530000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F43", "timestamp": "2026-02-11T10:00:00Z", "from_account": "XXXX3344", "to_account": "MUTUAL_FUND", "amount": 400000, "currency": "INR", "channel": "Online", "country": "India"},
+
+    {"tx_id": "F44", "timestamp": "2026-02-11T11:00:00Z", "from_account": "CLIENT_T", "to_account": "XXXX3344", "amount": 500000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F45", "timestamp": "2026-02-11T12:00:00Z", "from_account": "XXXX3344", "to_account": "TAX_ADVANCE", "amount": 200000, "currency": "INR", "channel": "Online", "country": "India"},
+
+    {"tx_id": "F46", "timestamp": "2026-02-11T13:00:00Z", "from_account": "CLIENT_U", "to_account": "XXXX3344", "amount": 480000, "currency": "INR", "channel": "NEFT", "country": "India"},
+
+    {"tx_id": "F47", "timestamp": "2026-02-11T14:00:00Z", "from_account": "XXXX3344", "to_account": "SAVINGS_ACCOUNT_2", "amount": 350000, "currency": "INR", "channel": "Online", "country": "India"}
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "case_id": "CASE_2026_00147",
+  "generated_at": "2026-02-11T12:30:00Z",
+  "institution": "Demo National Bank",
+
+  "customer_kyc": {
+    "customer_id": "CUST552299",
+    "full_name": "Sanjay Kumar",
+    "dob": "2000-01-14",
+    "pan": "AAZPK5522T",
+    "aadhaar_last4": "2233",
+    "occupation": "Student",
+    "declared_annual_income": 0,
+    "risk_category": "High",
+    "address": "Patna, Bihar, India",
+    "kyc_last_updated": "2023-11-02"
+  },
+
+  "account_profile": {
+    "account_number": "XXXX4401",
+    "account_type": "Savings",
+    "opened_date": "2023-12-01",
+    "average_monthly_balance": 5000,
+    "average_monthly_credit": 7000,
+    "average_monthly_debit": 6000,
+    "usual_transaction_pattern": "Minimal student spending"
+  },
+
+  "alerts": [
+    {
+      "alert_id": "ALERT_44001",
+      "type": "Mule Funnel Activity",
+      "description": "Account receiving and forwarding funds for multiple entities",
+      "trigger_time": "2026-02-10T13:12:00Z",
+      "severity": "Critical"
+    }
+  ],
+
+  "transactions": [
+    {"tx_id": "M1", "timestamp": "2026-02-10T12:00:00Z", "from_account": "ACC_P1", "to_account": "XXXX4401", "amount": 200000, "currency": "INR", "channel": "UPI", "country": "India"},
+    {"tx_id": "M2", "timestamp": "2026-02-10T12:05:00Z", "from_account": "XXXX4401", "to_account": "ACC_P2", "amount": 200000, "currency": "INR", "channel": "UPI", "country": "India"},
+    {"tx_id": "M3", "timestamp": "2026-02-10T12:10:00Z", "from_account": "ACC_P2", "to_account": "XXXX4401", "amount": 200000, "currency": "INR", "channel": "UPI", "country": "India"},
+    {"tx_id": "M4", "timestamp": "2026-02-10T12:20:00Z", "from_account": "XXXX4401", "to_account": "DUBAI_NODE_888", "amount": 200000, "currency": "INR", "channel": "SWIFT", "country": "UAE"}
+  ]
+}
+
+
+
+
+
+
+{
+  "case_id": "CASE_2026_00146",
+  "generated_at": "2026-02-11T12:15:00Z",
+  "institution": "Demo National Bank",
+
+  "customer_kyc": {
+    "customer_id": "CUST883311",
+    "full_name": "Imran Khan",
+    "dob": "1995-09-10",
+    "pan": "LMNOP5521A",
+    "aadhaar_last4": "9921",
+    "occupation": "Delivery Driver",
+    "declared_annual_income": 240000,
+    "risk_category": "Low",
+    "address": "Delhi, India",
+    "kyc_last_updated": "2025-03-18"
+  },
+
+  "account_profile": {
+    "account_number": "XXXX9911",
+    "account_type": "Savings",
+    "opened_date": "2022-01-05",
+    "average_monthly_balance": 18000,
+    "average_monthly_credit": 25000,
+    "average_monthly_debit": 22000,
+    "usual_transaction_pattern": "Salary + small ATM withdrawals"
+  },
+
+  "alerts": [
+    {
+      "alert_id": "ALERT_33001",
+      "type": "Structuring Deposits",
+      "description": "Repeated deposits just below reporting threshold",
+      "trigger_time": "2026-02-10T09:10:00Z",
+      "severity": "High"
+    }
+  ],
+
+  "transactions": [
+    {"tx_id": "S1", "timestamp": "2026-02-10T08:00:00Z", "from_account": "CASH", "to_account": "XXXX9911", "amount": 49000, "currency": "INR", "channel": "Cash", "country": "India"},
+    {"tx_id": "S2", "timestamp": "2026-02-10T08:15:00Z", "from_account": "CASH", "to_account": "XXXX9911", "amount": 49500, "currency": "INR", "channel": "Cash", "country": "India"},
+    {"tx_id": "S3", "timestamp": "2026-02-10T08:30:00Z", "from_account": "CASH", "to_account": "XXXX9911", "amount": 48000, "currency": "INR", "channel": "Cash", "country": "India"},
+    {"tx_id": "S4", "timestamp": "2026-02-10T09:00:00Z", "from_account": "XXXX9911", "to_account": "CRYPTO_GATEWAY_001", "amount": 140000, "currency": "INR", "channel": "Online", "country": "Estonia"}
+  ]
+}
+
+
+
+
+
+
+{
+  "case_id": "CASE_2026_00145",
+  "generated_at": "2026-02-11T12:05:00Z",
+  "institution": "Demo National Bank",
+
+  "customer_kyc": {
+    "customer_id": "CUST991200",
+    "full_name": "Rakesh Patel",
+    "dob": "1988-02-21",
+    "pan": "ZXCVB1234Q",
+    "aadhaar_last4": "1109",
+    "occupation": "Retail Shop Owner",
+    "declared_annual_income": 420000,
+    "risk_category": "Medium",
+    "address": "Ahmedabad, Gujarat, India",
+    "kyc_last_updated": "2024-06-10"
+  },
+
+  "account_profile": {
+    "account_number": "XXXX5521",
+    "account_type": "Savings",
+    "opened_date": "2017-04-11",
+    "average_monthly_balance": 65000,
+    "average_monthly_credit": 90000,
+    "average_monthly_debit": 88000,
+    "usual_transaction_pattern": "Small retail deposits"
+  },
+
+  "alerts": [
+    {
+      "alert_id": "ALERT_22001",
+      "type": "Layering Pattern",
+      "description": "Funds routed across multiple intermediary accounts",
+      "trigger_time": "2026-02-10T11:02:00Z",
+      "severity": "Critical"
+    },
+    {
+      "alert_id": "ALERT_22002",
+      "type": "Rapid International Transfer",
+      "description": "Funds exited to high-risk jurisdiction",
+      "trigger_time": "2026-02-10T11:15:00Z",
+      "severity": "High"
+    }
+  ],
+
+  "transactions": [
+    {"tx_id": "L1", "timestamp": "2026-02-10T10:50:00Z", "from_account": "ACC_A", "to_account": "XXXX5521", "amount": 300000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "L2", "timestamp": "2026-02-10T10:55:00Z", "from_account": "XXXX5521", "to_account": "ACC_B", "amount": 300000, "currency": "INR", "channel": "IMPS", "country": "India"},
+    {"tx_id": "L3", "timestamp": "2026-02-10T11:00:00Z", "from_account": "ACC_B", "to_account": "ACC_C", "amount": 300000, "currency": "INR", "channel": "IMPS", "country": "India"},
+    {"tx_id": "L4", "timestamp": "2026-02-10T11:06:00Z", "from_account": "ACC_C", "to_account": "HK_NODE_8821", "amount": 300000, "currency": "INR", "channel": "SWIFT", "country": "Hong Kong"}
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+{
+  "case_id": "CASE_2026_00145",
+  "generated_at": "2026-02-11T12:05:00Z",
+  "institution": "Demo National Bank",
+
+  "customer_kyc": {
+    "customer_id": "CUST991200",
+    "full_name": "Rakesh Patel",
+    "dob": "1988-02-21",
+    "pan": "ZXCVB1234Q",
+    "aadhaar_last4": "1109",
+    "occupation": "Retail Shop Owner",
+    "declared_annual_income": 420000,
+    "risk_category": "Medium",
+    "address": "Ahmedabad, Gujarat, India",
+    "kyc_last_updated": "2024-06-10"
+  },
+
+  "account_profile": {
+    "account_number": "XXXX5521",
+    "account_type": "Savings",
+    "opened_date": "2017-04-11",
+    "average_monthly_balance": 65000,
+    "average_monthly_credit": 90000,
+    "average_monthly_debit": 88000,
+    "usual_transaction_pattern": "Small retail deposits"
+  },
+
+  "alerts": [
+    {
+      "alert_id": "ALERT_22001",
+      "type": "Layering Pattern",
+      "description": "Funds routed across multiple intermediary accounts",
+      "trigger_time": "2026-02-10T11:02:00Z",
+      "severity": "Critical"
+    },
+    {
+      "alert_id": "ALERT_22002",
+      "type": "Rapid International Transfer",
+      "description": "Funds exited to high-risk jurisdiction",
+      "trigger_time": "2026-02-10T11:15:00Z",
+      "severity": "High"
+    }
+  ],
+
+  "transactions": [
+    {"tx_id": "L1", "timestamp": "2026-02-10T10:50:00Z", "from_account": "ACC_A", "to_account": "XXXX5521", "amount": 300000, "currency": "INR", "channel": "NEFT", "country": "India"},
+    {"tx_id": "L2", "timestamp": "2026-02-10T10:55:00Z", "from_account": "XXXX5521", "to_account": "ACC_B", "amount": 300000, "currency": "INR", "channel": "IMPS", "country": "India"},
+    {"tx_id": "L3", "timestamp": "2026-02-10T11:00:00Z", "from_account": "ACC_B", "to_account": "ACC_C", "amount": 300000, "currency": "INR", "channel": "IMPS", "country": "India"},
+    {"tx_id": "L4", "timestamp": "2026-02-10T11:06:00Z", "from_account": "ACC_C", "to_account": "HK_NODE_8821", "amount": 300000, "currency": "INR", "channel": "SWIFT", "country": "Hong Kong"}
+  ]
+}

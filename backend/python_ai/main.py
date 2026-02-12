@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from routes import health
+from routes import riskscore_route
 
 app = FastAPI(
     # title="python-ai",
@@ -10,6 +11,7 @@ app = FastAPI(
 
 # Routes
 app.include_router(health.router)
+app.include_router(riskscore_route.router)
 
 # Routes
 @app.get("/")
