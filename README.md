@@ -51,6 +51,8 @@ spring.session.jdbc.initialize-schema=always
 ```
 docker compose -f infra/docker/docker-compose.dev.yml up
 ```
+
+
 ```
 SAR-GENERATOR/
 │
