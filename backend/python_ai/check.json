@@ -122,6 +122,16 @@
   ]
 }
 
+
+
+
+
+
+
+
+
+
+
 {
   "case_id": "CASE_2026_00147",
   "generated_at": "2026-02-11T12:30:00Z",
@@ -167,6 +177,11 @@
     {"tx_id": "M4", "timestamp": "2026-02-10T12:20:00Z", "from_account": "XXXX4401", "to_account": "DUBAI_NODE_888", "amount": 200000, "currency": "INR", "channel": "SWIFT", "country": "UAE"}
   ]
 }
+
+
+
+
+
 
 
 

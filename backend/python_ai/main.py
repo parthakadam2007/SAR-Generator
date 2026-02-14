@@ -3,7 +3,7 @@ from routes import health
 from routes import riskscore_route
 from routes import evidence_generator_routes
 from contextlib import asynccontextmanager
-
+from routes.pipeline_route import pipeline_router
 import threading
 
 
@@ -34,8 +34,9 @@ app = FastAPI(
 
 # Routes
 app.include_router(health.router)
-app.include_router(riskscore_route.router)
-app.include_router(evidence_generator_routes.evidence_router)
+# app.include_router(riskscore_route.router)
+# app.include_router(evidence_generator_routes.evidence_router)
+app.include_router(pipeline_router)
 
 # Routes
 @app.get("/")

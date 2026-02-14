@@ -1,12 +1,11 @@
 from kafka import KafkaConsumer
 import json
-import time
+from routes.pipeline_route import pipeline_router
 
 KAFKA_BROKER = "kafka:9092"
 TOPIC = "bankAlert"
 GROUP_ID = "bank-alert-consumers"
-local_time_struct = time.localtime()
-formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", local_time_struct)
+
 def create_consumer():
 
     consumer = KafkaConsumer(
@@ -26,18 +25,19 @@ def create_consumer():
 
 
 def process_alert(message):
-# call pipleline here (prutvi and pranvav)
-# pipline(message)
     print("🚨 New Bank Alert Received",flush=True)
-    print(message)
+
+    temp_dict  = json.loads(message) 
+    print("🚨"+ pipeline_router(temp_dict),flush=True)
+
+    # TODO  save to DB, trigger pipeline, etc.
+
 
 def start_consumer():
     print("⏳ Waiting for Kafka...")
 
     consumer = create_consumer()
-
     print("✅ Connected. Listening on topic:", TOPIC)
-    print("Current local time (formatted):", formatted_time)
+    
     for msg in consumer:
-        print("Current local time (formatted):", formatted_time)
         process_alert(msg.value)
