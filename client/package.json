@@ -12,6 +12,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "axios": "^1.13.5",
+    "json": "^11.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-redux": "^9.2.0",
