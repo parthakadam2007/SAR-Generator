@@ -1,3 +1,4 @@
+import time
 from kafka import KafkaConsumer
 import json
 from services.riskscore_service import calculate_risk

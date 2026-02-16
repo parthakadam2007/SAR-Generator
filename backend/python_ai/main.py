@@ -5,13 +5,17 @@ from routes import evidence_generator_routes
 from contextlib import asynccontextmanager
 from routes.pipeline_route import pipeline_router
 import threading
-
-
+from contextlib import asynccontextmanager
+from database import connect_to_db, close_db_connection
 from services.kafka_consumer import start_consumer
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    print("trying to connect to database...")
+    await connect_to_db()
+    print("✅ Database connected")
+
 
     thread = threading.Thread(
         target=start_consumer,
@@ -20,6 +24,8 @@ async def lifespan(app: FastAPI):
     thread.start()
 
     yield   # App runs here
+
+    # await close_db_connection()
 
 
     print("App shutting down...")
