@@ -1,6 +1,7 @@
 FROM maven:3.9-eclipse-temurin-25
 WORKDIR /app
-ENV DB_URL=jdbc:postgresql://host.docker.internal:5432/SAR_Generator
+# $env:DB_URL="jdbc:postgresql://db.iravjtmvujenyrlqngsw.supabase.co:5432/postgres?user=postgres&password=SAR_Generator%40password"
+# ENV DB_URL=jdbc:postgresql://db.iravjtmvujenyrlqngsw.supabase.co:5432/postgres?user=postgres&password=SAR_Generator%40password
 COPY pom.xml .
 RUN mvn dependency:go-offline
 

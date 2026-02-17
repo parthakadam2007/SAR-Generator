@@ -16,14 +16,13 @@ public class BankAlertServiceImple implements BankAlertService{
 
     @Override
     public void processAlert(String data){
-        jsonValidator.validate(data);
         System.out.println("sending data to kafka");
         kafkaProducerService.send(data);
     }
 
-    @Override
-    public void saveCases(String data){
+    // @Override
+    // public void saveCases(String data){
         
         
-    }
+    // }
 }

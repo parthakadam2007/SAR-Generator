@@ -56,11 +56,14 @@ public class SecurityConfig {
             // Authorization configuration
             .authorizeHttpRequests(auth -> auth
                 // ✅ Public endpoints
-                .requestMatchers(  "/api/auth/**", "/auth/**").permitAll()
+                .requestMatchers(  "/api/auth/**", "/auth/**","/api/data/**","/api/cases/**","/data/**").permitAll()
                 // Swagger UI and API docs
                 // .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**").permitAll()
                 // Health check endpoint
+                .requestMatchers("/**").permitAll()
                 .requestMatchers("/health").permitAll()
+                .requestMatchers("/api/cases").permitAll()
+                .requestMatchers("/cases").permitAll()
                 // ✅ Secure everything else
                 // .anyRequest().authenticated()
             )
