@@ -1,0 +1,156 @@
+{
+    "status": "success",
+    "input": {
+        "case_id": "CASE_2026_00145",
+        "generated_at": "2026-02-11T12:05:00Z",
+        "institution": "Demo National Bank",
+        "customer_kyc": {
+            "customer_id": "CUST991200",
+            "full_name": "Rakesh Patel",
+            "dob": "1988-02-21",
+            "pan": "ZXCVB1234Q",
+            "aadhaar_last4": "1109",
+            "occupation": "Retail Shop Owner",
+            "declared_annual_income": 420000,
+            "risk_category": "Medium",
+            "address": "Ahmedabad, Gujarat, India",
+            "kyc_last_updated": "2024-06-10"
+        },
+        "account_profile": {
+            "account_number": "XXXX5521",
+            "account_type": "Savings",
+            "opened_date": "2017-04-11",
+            "average_monthly_balance": 65000,
+            "average_monthly_credit": 90000,
+            "average_monthly_debit": 88000,
+            "usual_transaction_pattern": "Small retail deposits"
+        },
+        "alerts": [
+            {
+                "alert_id": "ALERT_22001",
+                "type": "Layering Pattern",
+                "description": "Funds routed across multiple intermediary accounts",
+                "trigger_time": "2026-02-10T11:02:00Z",
+                "severity": "Critical"
+            },
+            {
+                "alert_id": "ALERT_22002",
+                "type": "Rapid International Transfer",
+                "description": "Funds exited to high-risk jurisdiction",
+                "trigger_time": "2026-02-10T11:15:00Z",
+                "severity": "High"
+            }
+        ],
+        "transactions": [
+            {
+                "tx_id": "L1",
+                "timestamp": "2026-02-10T10:50:00Z",
+                "from_account": "ACC_A",
+                "to_account": "XXXX5521",
+                "amount": 300000,
+                "currency": "INR",
+                "channel": "NEFT",
+                "country": "India"
+            },
+            {
+                "tx_id": "L2",
+                "timestamp": "2026-02-10T10:55:00Z",
+                "from_account": "XXXX5521",
+                "to_account": "ACC_B",
+                "amount": 300000,
+                "currency": "INR",
+                "channel": "IMPS",
+                "country": "India"
+            },
+            {
+                "tx_id": "L3",
+                "timestamp": "2026-02-10T11:00:00Z",
+                "from_account": "ACC_B",
+                "to_account": "ACC_C",
+                "amount": 300000,
+                "currency": "INR",
+                "channel": "IMPS",
+                "country": "India"
+            },
+            {
+                "tx_id": "L4",
+                "timestamp": "2026-02-10T11:06:00Z",
+                "from_account": "ACC_C",
+                "to_account": "HK_NODE_8821",
+                "amount": 300000,
+                "currency": "INR",
+                "channel": "SWIFT",
+                "country": "Hong Kong"
+            }
+        ]
+    },
+    "risk": {
+        "risk_score": 70,
+        "classification": "High",
+        "breakdown": {
+            "customer_risk": 12,
+            "alert_risk": 25,
+            "geographic_risk": 8,
+            "pattern_risk": 0,
+            "transaction_risk": 25
+        }
+    },
+    "threshold": 50,
+    "evidence_generated": true,
+    "evidence": [
+        "Customer KYC risk category is Medium.",
+        "Declared annual income is ₹4,20,000.",
+        "Customer occupation is Retail Shop Owner.",
+        "Alert 'Layering Pattern' with severity 'Critical' triggered at 2026-02-10T11:02:00Z.",
+        "Alert 'Rapid International Transfer' with severity 'High' triggered at 2026-02-10T11:15:00Z.",
+        "1 foreign transaction(s) detected.",
+        "Foreign country(ies) involved: Hong Kong.",
+        "Funds were transferred outside India.",
+        "Total transaction volume is ₹12,00,000.",
+        "Average monthly credit is ₹90,000.",
+        "Total transaction volume exceeds declared annual income.",
+        "Total transaction volume exceeds expected annual credit based on account profile.",
+        "4 transactions occurred within a one-hour window starting at 2026-02-10T10:50:00+00:00.",
+        "On 2026-02-10, same-day inflow of ₹3,00,000 and outflow of ₹3,00,000 detected."
+    ],
+    "sar_generated": true,
+    "sar": {
+        "sar_summary": "Rakesh Patel, a retail shop owner, conducted a series of rapid, high-value transactions totaling INR 3,00,000 on 2026-02-10. Funds were received, immediately layered through intermediary accounts, and then transferred to Hong Kong. This activity triggered critical and high-severity alerts for layering and rapid international transfer, and is inconsistent with the customer's profile and declared income.",
+        "subject_profile": {
+            "customer_id": "CUST991200",
+            "full_name": "Rakesh Patel",
+            "dob": "1988-02-21",
+            "pan": "ZXCVB1234Q",
+            "aadhaar_last4": "1109",
+            "occupation": "Retail Shop Owner",
+            "declared_annual_income": 420000,
+            "risk_category": "Medium",
+            "address": "Ahmedabad, Gujarat, India",
+            "kyc_last_updated": "2024-06-10",
+            "account_number": "XXXX5521",
+            "account_type": "Savings",
+            "opened_date": "2017-04-11",
+            "average_monthly_balance": 65000,
+            "average_monthly_credit": 90000,
+            "average_monthly_debit": 88000,
+            "usual_transaction_pattern": "Small retail deposits"
+        },
+        "risk_assessment": {
+            "customer_risk_category": "Medium",
+            "alert_severity": "Critical (Layering Pattern), High (Rapid International Transfer)",
+            "overall_risk": "Elevated"
+        },
+        "suspicious_indicators": [
+            "Layering Pattern: Funds routed across multiple intermediary accounts (ALERT_22001, Critical severity).",
+            "Rapid International Transfer: Funds exited to Hong Kong, a foreign jurisdiction (ALERT_22002, High severity).",
+            "Total transaction volume of INR 3,00,000 significantly exceeds declared annual income of INR 4,20,000.",
+            "Total transaction volume of INR 3,00,000 significantly exceeds average monthly credit of INR 90,000.",
+            "Rapid movement of funds: Same-day inflow and immediate outflow of INR 3,00,000.",
+            "Four transactions occurred within a one-hour window on 2026-02-10.",
+            "Funds transferred outside India to Hong Kong."
+        ],
+        "transaction_analysis": "On 2026-02-10, account XXXX5521 received INR 3,00,000 via NEFT (tx_id: L1) at 10:50:00Z. Five minutes later, the entire INR 3,00,000 was transferred out via IMPS (tx_id: L2) to ACC_B at 10:55:00Z. This amount was subsequently routed from ACC_B to ACC_C (tx_id: L3) at 11:00:00Z, and then from ACC_C to HK_NODE_8821 in Hong Kong via SWIFT (tx_id: L4) at 11:06:00Z. The total transaction volume of INR 3,00,000 for this rapid series of four transactions, completed within 16 minutes, significantly exceeds the customer's declared annual income of INR 4,20,000 and average monthly credit of INR 90,000. This same-day inflow and outflow of a large sum deviates from the account's usual pattern of small retail deposits.",
+        "narrative": "Rakesh Patel, customer ID CUST991200, a Retail Shop Owner with a declared annual income of INR 4,20,000, maintains Savings Account XXXX5521, opened on 2017-04-11. The account's usual transaction pattern is small retail deposits, with an average monthly credit of INR 90,000. The customer's KYC risk category is Medium, last updated on 2024-06-10.\nOn 2026-02-10, a series of four transactions totaling INR 3,00,000 occurred within a one-hour window, specifically between 10:50:00Z and 11:06:00Z.\nAt 10:50:00Z, INR 3,00,000 was credited to account XXXX5521 from ACC_A via NEFT (tx_id: L1).\nFive minutes later, at 10:55:00Z, the entire INR 3,00,000 was debited from account XXXX5521 and transferred to ACC_B via IMPS (tx_id: L2).\nThis was followed by a transfer of INR 3,00,000 from ACC_B to ACC_C via IMPS (tx_id: L3) at 11:00:00Z.\nFinally, at 11:06:00Z, the INR 3,00,000 was transferred from ACC_C to HK_NODE_8821 in Hong Kong via SWIFT (tx_id: L4).\nThis sequence of transactions triggered a 'Layering Pattern' alert (ALERT_22001) at 11:02:00Z, classified as Critical severity, due to funds being routed across multiple intermediary accounts.\nA 'Rapid International Transfer' alert (ALERT_22002) was subsequently triggered at 11:15:00Z, classified as High severity, as funds exited to Hong Kong, a foreign jurisdiction.\nThe total transaction volume of INR 3,00,000 for this single event significantly exceeds the customer's declared annual income of INR 4,20,000 and the average monthly credit of INR 90,000. The same-day inflow and outflow of INR 3,00,000 is inconsistent with the customer's declared occupation as a Retail Shop Owner and the usual transaction pattern of small retail deposits.",
+        "recommended_action": "File a Suspicious Activity Report. Further investigation into the source of funds (ACC_A) and the beneficiaries (ACC_B, ACC_C, HK_NODE_8821) is recommended. Review of all associated accounts and transactions for similar patterns."
+    }
+}
