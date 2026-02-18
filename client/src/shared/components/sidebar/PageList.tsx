@@ -17,6 +17,7 @@ interface RootState {
     };
 } 
 
+// here the pagelist is hardcoded but in future we can make it dynamic by fetching the data from the server and then rendering the list based on the data received from the server. This will make the application more flexible and scalable as we can easily add or remove pages without changing the codebase. We can also add a loading state while fetching the data from the server to enhance the user experience.
 const PageList: React.FC = () => {
    const dispatch = useDispatch();
    const navigate = useNavigate();

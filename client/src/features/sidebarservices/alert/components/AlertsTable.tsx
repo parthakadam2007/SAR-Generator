@@ -86,7 +86,7 @@ export default function AlertsTable({ alerts }: Props) {
                 </td>
               </tr>
             ) : (
-              alerts.map((alert, index) => (
+              alerts.map((alert) => (
                 <tr
                   key={alert.id}
                   className="transition-colors group"
