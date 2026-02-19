@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { Alert } from "../../../../shared/slices/alerts/alertsTypes";
 import RiskBadge from "./RiskBadge";
 
@@ -119,9 +120,11 @@ export default function AlertsTable({ alerts }: Props) {
                     3
                   </td>
                   <td className="px-6 py-4 text-center">
-                    <button className="text-blue-600 hover:text-blue-900 text-sm font-medium group-hover:underline transition-colors">
-                      Investigate
-                    </button>
+                    <Link to={`/case-investigation/${alert.id}`}>
+                      <button className="text-blue-600 hover:text-blue-900 text-sm font-medium group-hover:underline transition-colors">
+                        Investigate
+                      </button>
+                    </Link>
                   </td>
                 </tr>
               ))

@@ -1,7 +1,26 @@
 import PageList from "../../../../shared/components/sidebar/PageList";
 import Header from "../../../../shared/components/header/Header";
 
-const Section = ({ title }: { title: string }) => (
+const sarData = {
+   executiveSummary: `Rakesh Patel, a retail shop owner from Ahmedabad, conducted rapid high-value transactions totaling INR 3,00,000 on 10-Feb-2026. Funds were received and immediately routed through intermediary accounts before being transferred internationally to Hong Kong. The activity triggered critical AML alerts and is inconsistent with the customer's profile and declared income.`,
+   customerProfile: `Customer Name: Rakesh Patel
+    Customer ID: CUST991200
+    DOB: 21-Feb-1988
+    PAN: ZXCVB1234Q
+    Occupation: Retail Shop Owner
+    Declared Annual Income: INR 4,20,000
+    Risk Category: Medium
+
+    Account: Savings XXXX5521 (Opened 11-Apr-2017)
+    Average Monthly Credit: INR 90,000
+    Average Monthly Balance: INR 65,000
+    Usual Activity: Small retail deposits`,
+
+    suspiciousActivity: `On 10-Feb-2026, Rakesh Patel's account received three large deposits of INR 1,00,000 each within a span of 2 hours. These funds were then rapidly transferred to two different accounts (XXXX1234 and XXXX5678) before being sent internationally to Hong Kong. The transactions were flagged by the AML system due to their size, frequency, and the use of multiple intermediary accounts, which is inconsistent with the customer's typical banking behavior and declared income.`,
+    regulatoryRationale: `The transactions conducted by Rakesh Patel exhibit several red flags indicative of potential money laundering activities. The rapid succession of high-value deposits followed by immediate transfers to intermediary accounts and subsequent international remittances to Hong Kong are inconsistent with the customer's declared income and typical banking patterns. Such behavior raises concerns about the legitimacy of the funds and potential attempts to obscure their origin, warranting further investigation and reporting under AML regulations.`,
+    conclusion: `Given the significant discrepancies between Rakesh Patel's declared income and the nature of the transactions, along with the use of multiple intermediary accounts and international transfers, there is a strong indication of potential money laundering. It is recommended that this case be escalated for further investigation to determine the legitimacy of the funds and to ensure compliance with AML regulations.`
+}
+const Section = ({ title, value }: { title: string, value?: string }) => (
   <div className="mb-8">
     <div className="flex items-center gap-3 mb-2 pb-3 border-gray-200">
       <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
@@ -12,6 +31,7 @@ const Section = ({ title }: { title: string }) => (
     <textarea
       className="w-full border border-gray-200 rounded-lg p-4 h-32 resize-none bg-white/50 hover:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm leading-relaxed placeholder-gray-400 transition-all duration-200"
       placeholder={`Write ${title.toLowerCase()}...`}
+      defaultValue={value}
     />
   </div>
 );
@@ -88,11 +108,11 @@ const SarGenerator = () => {
             </div>
           </div>
 
-          <Section title="Executive Summary" />
-          <Section title="Customer Profile" />
-          <Section title="Suspicious Activity" />
-          <Section title="Regulatory Rationale" />
-          <Section title="Conclusion" />
+          <Section title="Executive Summary" value={sarData.executiveSummary} />
+          <Section title="Customer Profile" value={sarData.customerProfile}  />
+          <Section title="Suspicious Activity" value={sarData.suspiciousActivity} />
+          <Section title="Regulatory Rationale" value={sarData.regulatoryRationale} />
+          <Section title="Conclusion" value={sarData.conclusion} />
         </div>
       </div>
     </div>
