@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { FaExclamationTriangle, FaFlag } from "react-icons/fa";
+import { FaExclamationTriangle } from "react-icons/fa";
 import ArrowUpward from "../../assets/arrow_outward.svg";
 import Header from "../../shared/components/header/Header";
 import PageList from "../../shared/components/sidebar/PageList";
@@ -67,8 +66,11 @@ const CaseInvestigation = () => {
             <button
               onClick={() => navigate("/sar-editor")}
               className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-blue-800 transform transition-all duration-300 flex items-center space-x-3"
-            >
-              <span>Generate SAR Draft</span>
+            > 
+             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+              <span>Checkout SAR Report</span>
             </button>
           </div>
 
