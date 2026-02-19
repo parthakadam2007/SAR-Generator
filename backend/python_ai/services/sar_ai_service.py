@@ -1,20 +1,41 @@
 import os
-from dotenv import load_dotenv
 import json
+import traceback
+from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
+from schemas.sar_schemas import SARContent
+
 load_dotenv()
 
 # -------------------------------------------------------
-# Gemini LLM Setup
+# Debug Utility
+# -------------------------------------------------------
+
+def debug_log(message):
+    print(f"[DEBUG] {message}")
+
+# -------------------------------------------------------
+# Gemini LLM Setup with Validation
 # -------------------------------------------------------
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-print("API KEY LOADED:", bool(os.getenv("GOOGLE_API_KEY")))
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    temperature=0,  # deterministic
-)
+
+if not GOOGLE_API_KEY:
+    raise EnvironmentError("❌ GOOGLE_API_KEY not found in environment variables.")
+
+debug_log("API key loaded successfully.")
+
+try:
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-2.5-flash",
+        temperature=0,
+        google_api_key=GOOGLE_API_KEY
+    )
+    structured_llm = llm.with_structured_output(SARContent)
+    debug_log("Gemini model initialized successfully.")
+except Exception as e:
+    raise RuntimeError(f"❌ Failed to initialize Gemini model: {str(e)}")
 
 # -------------------------------------------------------
 # Strict SAR Prompt
@@ -56,29 +77,47 @@ Evidence:
 {evidence}
 """
 
-
 prompt_template = ChatPromptTemplate.from_template(SAR_PROMPT)
 
 # -------------------------------------------------------
-# SAR Generator
+# SAR Generator with Full Error Handling
 # -------------------------------------------------------
 
-def generate_sar(case_data: dict, evidence: list):
+def generate_sar(case_data: dict, evidence: list, verbose=True):
 
-    chain = prompt_template | llm
+    if verbose:
+        debug_log("Starting SAR generation...")
 
-    response = chain.invoke({
-        "case_data": json.dumps(case_data, indent=2),
-        "evidence": json.dumps(evidence, indent=2)
-    })
+    if not isinstance(case_data, dict):
+        return {"error": "case_data must be a dictionary"}
+    if not isinstance(evidence, list):
+        return {"error": "evidence must be a list"}
 
-    # Gemini returns text → parse JSON safely
     try:
-        sar_json = json.loads(response.content)
-    except Exception:
-        sar_json = {
-            "error": "AI output parsing failed",
-            "raw_output": response.content
-        }
+        chain = prompt_template | structured_llm
 
-    return sar_json
+        if verbose:
+            debug_log("Invoking Gemini with structured schema enforcement...")
+
+        response = chain.invoke({
+            "case_data": json.dumps(case_data, indent=2),
+            "evidence": json.dumps(evidence, indent=2)
+        })
+
+        if verbose:
+            debug_log("Structured SAR generated successfully.")
+
+        # response is already validated Pydantic object
+        return response.model_dump()
+
+    except Exception as e:
+        error_trace = traceback.format_exc()
+
+        debug_log("❌ Structured SAR generation failed")
+        debug_log(error_trace)
+
+        return {
+            "error": "SAR generation failed",
+            "details": str(e),
+            "trace": error_trace
+        }
