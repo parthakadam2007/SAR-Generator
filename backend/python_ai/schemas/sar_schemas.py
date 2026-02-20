@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Dict, Any,Literal
 from datetime import date
-from uuid import UUID
 
 class RiskAssessment(BaseModel):
     risk_category: str
@@ -9,7 +8,7 @@ class RiskAssessment(BaseModel):
     inconsistencies: List[str]
 
 class SubjectProfile(BaseModel):
-    customer_id: UUID
+    customer_id: str
     full_name: str
     dob: date
     pan: str

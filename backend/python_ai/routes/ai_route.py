@@ -37,3 +37,4 @@ async def sar_pipeline(case_data: dict):
         response["sar"] = sar
 
     return response
+

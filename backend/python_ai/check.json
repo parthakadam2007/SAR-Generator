@@ -1,5 +1,5 @@
 {
-  "case_id": "CASE_2026_FALSE_0091",
+  "case_id": "d2108626-493b-4590-a16a-2b86a42b22d0CASE_2026_FALSE_0091",
   "generated_at": "2026-02-11T13:10:00Z",
   "institution": "Demo National Bank",
 
@@ -138,7 +138,7 @@
   "institution": "Demo National Bank",
 
   "customer_kyc": {
-    "customer_id": "d2108626-493b-4590-a16a-2b86a42b22d0",
+    "customer_id": "COS-1",
     "full_name": "Sanjay Kumar",
     "dob": "2000-01-14",
     "pan": "AAZPK5522T",

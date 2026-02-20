@@ -63,11 +63,21 @@ async def process_alert(message):
     #     response["evidence"] = generate_evidence(case, risk_result)
 
     sar_pipeline_response = await sar_pipeline(message)   # ✅ awaited
-
+   
     try:
         print( sar_pipeline_response, flush=True)
         await create_case_analysis(sar_pipeline_response)   # ✅ awaited
         print("✅ Case saved")
+            
+        try:
+            # Save SAR pipeline response to file
+            with open("sar_pipeline_response.json", "w") as f:
+                json.dump(sar_pipeline_response, f, indent=2)
+
+                print("✅ SAR pipeline response saved to file", flush=True)
+        except Exception as e:
+            print("⚠️ Error saving SAR pipeline response to file:", e, flush=True)
+
 
     except Exception as e:
         print("⚠️ DB error:", e, flush=True)
