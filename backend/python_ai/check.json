@@ -1,10 +1,10 @@
 {
-  "case_id": "CASE_2026_FALSE_0091",
+  "case_id": "461523f3-d013-4c7f-b5a2-56191a97c8e6",
   "generated_at": "2026-02-11T13:10:00Z",
   "institution": "Demo National Bank",
 
   "customer_kyc": {
-    "customer_id": "CUST774411",
+    "customer_id": "custoer23412",
     "full_name": "Neha Gupta",
     "dob": "1987-05-23",
     "pan": "BNMGH8821Q",
@@ -17,7 +17,7 @@
   },
 
   "account_profile": {
-    "account_number": "XXXX3344",
+    "account_number": "12334344",
     "account_type": "Savings",
     "opened_date": "2016-09-18",
     "average_monthly_balance": 420000,
@@ -138,7 +138,7 @@
   "institution": "Demo National Bank",
 
   "customer_kyc": {
-    "customer_id": "d2108626-493b-4590-a16a-2b86a42b22d0",
+    "customer_id": "COS-1",
     "full_name": "Sanjay Kumar",
     "dob": "2000-01-14",
     "pan": "AAZPK5522T",
@@ -189,12 +189,12 @@
 
 
 {
-  "case_id": "CASE_2026_00146",
+  "case_id": "a4c139d0-573d-4f8a-9a32-768cd1ad104c",
   "generated_at": "2026-02-11T12:15:00Z",
   "institution": "Demo National Bank",
 
   "customer_kyc": {
-    "customer_id": "CUST883311",
+    "customer_id": "CUST88a11",
     "full_name": "Imran Khan",
     "dob": "1995-09-10",
     "pan": "LMNOP5521A",

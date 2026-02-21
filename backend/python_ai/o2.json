@@ -1,0 +1,155 @@
+{
+    "status": "success",
+    "input": {
+        "case_id": "d2108626-493b-4590-a16a-2b86a42b32d0",
+        "generated_at": "2026-02-11T12:30:00Z",
+        "institution": "Demo National Bank",
+        "customer_kyc": {
+            "customer_id": "d2108626-493b-4590-a16a-2b86a42b22d0",
+            "full_name": "Sanjay Kumar",
+            "dob": "2000-01-14",
+            "pan": "AAZPK5522T",
+            "aadhaar_last4": "2233",
+            "occupation": "Student",
+            "declared_annual_income": 0,
+            "risk_category": "High",
+            "address": "Patna, Bihar, India",
+            "kyc_last_updated": "2023-11-02"
+        },
+        "account_profile": {
+            "account_number": "XXXX4401",
+            "account_type": "Savings",
+            "opened_date": "2023-12-01",
+            "average_monthly_balance": 5000,
+            "average_monthly_credit": 7000,
+            "average_monthly_debit": 6000,
+            "usual_transaction_pattern": "Minimal student spending"
+        },
+        "alerts": [
+            {
+                "alert_id": "ALERT_44001",
+                "type": "Mule Funnel Activity",
+                "description": "Account receiving and forwarding funds for multiple entities",
+                "trigger_time": "2026-02-10T13:12:00Z",
+                "severity": "Critical"
+            }
+        ],
+        "transactions": [
+            {
+                "tx_id": "M1",
+                "timestamp": "2026-02-10T12:00:00Z",
+                "from_account": "ACC_P1",
+                "to_account": "XXXX4401",
+                "amount": 200000,
+                "currency": "INR",
+                "channel": "UPI",
+                "country": "India"
+            },
+            {
+                "tx_id": "M2",
+                "timestamp": "2026-02-10T12:05:00Z",
+                "from_account": "XXXX4401",
+                "to_account": "ACC_P2",
+                "amount": 200000,
+                "currency": "INR",
+                "channel": "UPI",
+                "country": "India"
+            },
+            {
+                "tx_id": "M3",
+                "timestamp": "2026-02-10T12:10:00Z",
+                "from_account": "ACC_P2",
+                "to_account": "XXXX4401",
+                "amount": 200000,
+                "currency": "INR",
+                "channel": "UPI",
+                "country": "India"
+            },
+            {
+                "tx_id": "M4",
+                "timestamp": "2026-02-10T12:20:00Z",
+                "from_account": "XXXX4401",
+                "to_account": "DUBAI_NODE_888",
+                "amount": 200000,
+                "currency": "INR",
+                "channel": "SWIFT",
+                "country": "UAE"
+            }
+        ]
+    },
+    "risk": {
+        "risk_score": 98,
+        "classification": "Critical",
+        "breakdown": {
+            "customer_risk": 20,
+            "alert_risk": 25,
+            "geographic_risk": 8,
+            "pattern_risk": 20,
+            "transaction_risk": 25
+        }
+    },
+    "threshold": 50,
+    "evidence_generated": true,
+    "evidence": [
+        "Customer KYC risk category is High.",
+        "Declared annual income is ₹0.",
+        "Customer occupation is Student.",
+        "Alert 'Mule Funnel Activity' with severity 'Critical' triggered at 2026-02-10T13:12:00Z.",
+        "1 foreign transaction(s) detected.",
+        "Foreign country(ies) involved: UAE.",
+        "Funds were transferred outside India.",
+        "Circular fund flow pattern detected among accounts.",
+        "Total transaction volume is ₹8,00,000.",
+        "Average monthly credit is ₹7,000.",
+        "Total transaction volume exceeds declared annual income.",
+        "Total transaction volume exceeds expected annual credit based on account profile.",
+        "4 transactions occurred within a one-hour window starting at 2026-02-10T12:00:00+00:00.",
+        "On 2026-02-10, same-day inflow of ₹4,00,000 and outflow of ₹4,00,000 detected."
+    ],
+    "sar_generated": true,
+    "sar": {
+        "sar_summary": "This report details suspicious activity in the account of Sanjay Kumar, a student with a declared annual income of INR 0. The account exhibited rapid, high-value transactions, including a circular fund flow and an international transfer to UAE, inconsistent with the customer's profile. A 'Mule Funnel Activity' alert was triggered due to the account receiving and forwarding significant funds for multiple entities.",
+        "subject_profile": {
+            "customer_id": "d2108626-493b-4590-a16a-2b86a42b22d0",
+            "full_name": "Sanjay Kumar",
+            "dob": "2000-01-14",
+            "pan": "AAZPK5522T",
+            "aadhaar_last4": "2233",
+            "occupation": "Student",
+            "declared_annual_income": 0.0,
+            "address": "Patna, Bihar, India",
+            "kyc_last_updated": "2023-11-02",
+            "account_number": "XXXX4401",
+            "account_type": "Savings",
+            "opened_date": "2023-12-01",
+            "average_monthly_balance": 5000.0,
+            "average_monthly_credit": 7000.0,
+            "average_monthly_debit": 6000.0,
+            "usual_transaction_pattern": "Minimal student spending"
+        },
+        "risk_assessment": {
+            "risk_category": "High",
+            "alerts_triggered": [
+                "Mule Funnel Activity"
+            ],
+            "inconsistencies": [
+                "Declared annual income of INR 0 is inconsistent with the high transaction volume observed.",
+                "Transaction pattern involving rapid, high-value, circular, and international transfers is inconsistent with the customer's declared occupation as a Student and usual transaction pattern of 'Minimal student spending'.",
+                "Total transaction volume of INR 8,00,000 significantly exceeds the declared annual income and average monthly credit of INR 7,000."
+            ]
+        },
+        "suspicious_indicators": [
+            "Customer KYC risk category is High.",
+            "Declared annual income is INR 0.",
+            "Alert 'Mule Funnel Activity' with severity 'Critical' triggered.",
+            "Significant transaction volume (INR 8,00,000) exceeds declared annual income and expected annual credit.",
+            "Four transactions occurred within a one-hour window.",
+            "Circular fund flow pattern detected among accounts.",
+            "Same-day inflow of INR 4,00,000 and outflow of INR 4,00,000 detected.",
+            "Funds were transferred outside India to UAE via SWIFT."
+        ],
+        "transaction_analysis": "On 2026-02-10, the account received INR 200,000 via UPI from ACC_P1 at 12:00:00Z. Five minutes later, at 12:05:00Z, INR 200,000 was transferred out via UPI to ACC_P2. Subsequently, at 12:10:00Z, INR 200,000 was credited via UPI from ACC_P2, completing a circular fund flow. At 12:20:00Z, INR 200,000 was debited via SWIFT to DUBAI_NODE_888 in UAE. The total transaction volume for these four transactions within one hour was INR 8,00,000 (INR 4,00,000 credit and INR 4,00,000 debit). This activity is inconsistent with the customer's declared occupation as a student and declared annual income of INR 0.",
+        "narrative": "Sanjay Kumar, a student with a declared annual income of INR 0, maintains a Savings account (XXXX4401) opened on 2023-12-01. The customer's KYC risk category is High. The usual transaction pattern for this account is described as 'Minimal student spending,' with an average monthly credit of INR 7,000. On 2026-02-10, the account exhibited unusual activity. At 12:00:00Z, INR 200,000 was credited via UPI from ACC_P1. Five minutes later, at 12:05:00Z, INR 200,000 was debited via UPI to ACC_P2. Subsequently, at 12:10:00Z, INR 200,000 was credited via UPI from ACC_P2. This sequence indicates a circular fund flow pattern. At 12:20:00Z, INR 200,000 was debited via SWIFT to DUBAI_NODE_888 in UAE. These four transactions, totaling INR 8,00,000 in volume (INR 4,00,000 credit and INR 4,00,000 debit), occurred within a one-hour window. The total transaction volume significantly exceeds the customer's declared annual income of INR 0 and the average monthly credit of INR 7,000. An alert for 'Mule Funnel Activity' was triggered at 2026-02-10T13:12:00Z, indicating the account's involvement in receiving and forwarding funds for multiple entities. The rapid, high-value, circular, and international nature of these transactions is inconsistent with the customer's profile as a student with minimal declared income.",
+        "recommended_action": "Further investigation is recommended to ascertain the source and destination of funds and the legitimacy of these transactions. Consider freezing the account and reporting to relevant authorities."
+    }
+}

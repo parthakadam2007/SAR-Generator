@@ -40,6 +40,9 @@ async def create_case_analysis(data: dict):
                 data["risk"]["breakdown"]["transaction_risk"]
             )
 
+            if data.get("evidence_generated") == False:
+                return  # No evidence to save, exit early
+
             # Evidence
             for ev in data["evidence"]:
                 await conn.execute(
@@ -53,15 +56,8 @@ async def create_case_analysis(data: dict):
                 )
             print(f"SAR  generated for case_id {data['input']['case_id']}", flush=True)
 
-            # SAR
-        
-            # print(f"SAR sar_reports saving  for case_id {data['input']['case_id']}", flush=True)
-            # print(f"case_id: {data['input']['case_id']}", flush=True)
-            # print(f"analysis_id: {analysis_id}", flush=True)
-            # print(f"sar_summary: {data}", flush=True)
-            # print(f"narrative: {data['sar']['narrative']}", flush=True)
-            # print(f"transaction_analysis: {data['sar']['transaction_analysis']}", flush=True)
-            # print(f"recommended_action: {data['sar']['recommended_action']}", flush=True)
+            if data["sar_generated"] == False:
+                return  # No SAR to save, exit early
 
             sar_id = None
             try:
@@ -87,128 +83,139 @@ async def create_case_analysis(data: dict):
 
             print(f"SAR subject saving  for case_id {data['input']['case_id']}", flush=True)
 
-            # # Get SAR section safely
-            # sar = data.get("sar")
+            # Get SAR section safely
+            sar = data.get("sar")
 
-            # if not sar:
-            #     raise ValueError("SAR section is missing in input data")
+            if not sar:
+                raise ValueError("SAR section is missing in input data")
 
-            # # Get subject profile safely
-            # subject = sar.get("subject_profile")
+            # Get subject profile safely
+            subject = sar.get("subject_profile")
 
-            # if not subject:
-            #     print(
-            #         f"Error: Subject profile is missing for case_id {data.get('input', {}).get('case_id')}",
-            #         flush=True
-            #     )
-            #     raise ValueError("Subject profile is required to save SAR report")
+            if not subject:
+                print(
+                    f"Error: Subject profile is missing for case_id {data.get('input', {}).get('case_id')}",
+                    flush=True
+                )
+                raise ValueError("Subject profile is required to save SAR report")
 
-            # try:
-            # # Subject
-            #     # debug print values
-            #     print(
-            #         "Debug sar_subject values:",
-            #         sar_id,
-            #         subject.get("customer_id"),
-            #         subject.get("full_name"),
-            #         subject.get("dob"),
-            #         subject.get("pan"),
-            #         subject.get("aadhaar_last4"),
-            #         subject.get("occupation"),
-            #         subject.get("declared_annual_income"),
-            #         data["sar"]["risk_assessment"]["risk_category"],
-            #         subject.get("address"),
-            #         subject.get("kyc_last_updated"),
-            #         flush=True
-            #     )
+            try:
+            # Subject
+                # debug print values
+                print(
+                    "Debug sar_subject values:",
+                    sar_id,
+                    subject.get("customer_id"),
+                    subject.get("full_name"),
+                    subject.get("dob"),
+                    subject.get("pan"),
+                    subject.get("aadhaar_last4"),
+                    subject.get("occupation"),
+                    subject.get("declared_annual_income"),
+                    data["sar"]["risk_assessment"]["risk_category"],
+                    subject.get("address"),
+                    subject.get("kyc_last_updated"),
+                    flush=True
+                )
 
-            #     await conn.execute(
-            #         """
-            #         INSERT INTO sar_subjects
-            #         (sar_id, customer_id, full_name, dob, pan,
-            #             aadhaar_last4, occupation, declared_annual_income,
-            #             risk_category, address, kyc_last_updated)
-            #         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)
-            #         """,
-            #         sar_id,
-            #         subject["customer_id"],
-            #         subject["full_name"],
-            #         subject["dob"],
-            #         subject["pan"],
-            #         subject["aadhaar_last4"],
-            #         subject["occupation"],
-            #         subject["declared_annual_income"],
-            #         data["sar"]["risk_assessment"]["risk_category"],
-            #         subject["address"],
-            #         subject["kyc_last_updated"]
-            #     )
+                await conn.execute(
+                    """
+                    INSERT INTO sar_subjects
+                    (sar_id, customer_id, full_name, dob, pan,
+                        aadhaar_last4, occupation, declared_annual_income,
+                        risk_category, address, kyc_last_updated)
+                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)
+                    """,
+                    sar_id,
+                    subject["customer_id"],
+                    subject["full_name"],
+                    subject["dob"],
+                    subject["pan"],
+                    subject["aadhaar_last4"],
+                    subject["occupation"],
+                    subject["declared_annual_income"],
+                    data["sar"]["risk_assessment"]["risk_category"],
+                    subject["address"],
+                    subject["kyc_last_updated"]
+                )
 
-            # except Exception as e:
-            #     print(f"Error inserting SAR subject for case_id {data['input']['case_id']} {sar['risk_assessment']['risk_category']}: {e}", flush=True)
-            #     raise e
+            except Exception as e:
+                print(f"Error inserting SAR subject for case_id {data['input']['case_id']} {sar['risk_assessment']['risk_category']}: {e}", flush=True)
+                raise e
 
 
 
-            # print(f"SAR account saving  for case_id {data['input']['case_id']}", flush=True)
+            print(f"SAR account saving  for case_id {data['input']['case_id']}", flush=True)
 
-            # # Accounts
-            # try:
-            #     await conn.execute(
-            #         """
-            #         INSERT INTO sar_accounts
-            #         (sar_id, account_number, account_type, opened_date,
-            #             average_monthly_balance, average_monthly_credit,
-            #             average_monthly_debit, usual_transaction_pattern)
-            #         VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
-            #         """,
-            #         sar_id,
-            #         subject["account_number"],
-            #         subject["account_type"],
-            #         subject["opened_date"],
-            #         subject["average_monthly_balance"],
-            #         subject["average_monthly_credit"],
-            #         subject["average_monthly_debit"],
-            #         subject["usual_transaction_pattern"]
-            #     )
-            # except Exception as e:
-            #     print(f"Error inserting SAR account for case_id {data['input']['case_id']}: {e}", flush=True)
-            #     raise e
+            # Accounts
+            try:
+                await conn.execute(
+                    """
+                    INSERT INTO sar_accounts
+                    (sar_id, account_number, account_type, opened_date,
+                        average_monthly_balance, average_monthly_credit,
+                        average_monthly_debit, usual_transaction_pattern)
+                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
+                    """,
+                    sar_id,
+                    subject["account_number"],
+                    subject["account_type"],
+                    subject["opened_date"],
+                    subject["average_monthly_balance"],
+                    subject["average_monthly_credit"],
+                    subject["average_monthly_debit"],
+                    subject["usual_transaction_pattern"]
+                )
+            except Exception as e:
+                print(f"Error inserting SAR account for case_id {data['input']['case_id']}: {e}", flush=True)
+                raise e
 
-            # print(f"SAR sar_risk_assessments saving  for case_id {data['input']['case_id']}", flush=True)
+            print(f"SAR sar_risk_assessments saving  for case_id {data['input']['case_id']}", flush=True)
 
-            # # Risk assessment
-            # try:
-            #     await conn.execute(
-            #         """
-            #         INSERT INTO sar_risk_assessments
-            #         (sar_id, customer_risk_category, alert_severity, overall_risk)
-            #         VALUES ($1,$2,$3,$4)
-            #         """,
-            #         sar_id,
-            #         data["sar"]["risk_assessment"]["customer_risk_category"],
-            #         data["sar"]["risk_assessment"]["alert_severity"],
-            #         data["sar"]["risk_assessment"]["overall_risk"]
-            #     )
-            # except Exception as e:
-            #     print(f"Error inserting SAR risk assessment for case_id {data['input']['case_id']}: {e}", flush=True)
-            #     raise e
 
-            # print(f"SAR suspicious_indicators saving  for case_id {data['input']['case_id']}", flush=True)
+            risk = sar.get("risk_assessment")
+            if not risk:
+                print(
+                    f"Error: Risk assessment is missing for case_id {data.get('input', {}).get('case_id')}",
+                    flush=True
+                )
+                raise ValueError("Risk assessment is required to save SAR report")
+            
+            # Risk assessment
+            try:
+                alerts_str = ", ".join(risk.get("alerts_triggered", []))
+                inconsistencies_str = ", ".join(risk.get("inconsistencies", []))
+                
+                await conn.execute(
+                    """
+                    INSERT INTO sar_risk_assessments
+                    (sar_id, risk_category, alerts_triggered, inconsistencies)
+                    VALUES ($1,$2,$3,$4)
+                    """,
+                    sar_id,
+                    risk.get("risk_category"),
+                    alerts_str,
+                    inconsistencies_str
+                )
+            except Exception as e:
+                print(f"Error inserting SAR risk assessment for case_id {data['input']['case_id']}: {e}", flush=True)
+                raise e
 
-            # # Indicators
-            # try:
-            #     for ind in data["sar"]["suspicious_indicators"]:
-            #         await conn.execute(
-            #             """
-            #             INSERT INTO sar_indicators
-            #             (sar_id, indicator_name, indicator_description)
-            #             VALUES ($1,$2,$3)
-            #             """,
-            #             sar_id,
-            #             ind,
-            #             "auto-generated"
-            #         )
-            # except Exception as e:
-            #     print(f"Error inserting SAR indicators for case_id {data['input']['case_id']}: {e}", flush=True)
-            #     raise e
-            # print(f"SAR report saved with id {sar_id} for case_id {data['input']['case_id']}", flush=True)
+            print(f"SAR suspicious_indicators saving  for case_id {data['input']['case_id']}", flush=True)
+
+            # Indicators
+            try:
+                for ind in data["sar"]["suspicious_indicators"]:
+                    await conn.execute(
+                        """
+                        INSERT INTO sar_indicators
+                        (sar_id, indicator_text)
+                        VALUES ($1,$2)
+                        """,
+                        sar_id,
+                        ind,
+                    )
+            except Exception as e:
+                print(f"Error inserting SAR indicators for case_id {data['input']['case_id']}: {e}", flush=True)
+                raise e
+            print(f"SAR report saved with id {sar_id} for case_id {data['input']['case_id']}", flush=True)

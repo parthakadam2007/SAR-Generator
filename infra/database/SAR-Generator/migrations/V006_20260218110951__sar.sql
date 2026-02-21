@@ -25,7 +25,7 @@ CREATE TABLE sar_subjects (
 
     customer_id VARCHAR(50) NOT NULL,
     full_name VARCHAR(150) NOT NULL,
-    dob VARCHAR(100),
+    dob DATE,
     pan VARCHAR(20),
     aadhaar_last4 VARCHAR(4),
 
@@ -61,9 +61,9 @@ CREATE TABLE sar_risk_assessments (
 
     sar_id UUID REFERENCES sar_reports(id) ON DELETE CASCADE,
 
-    customer_risk_category VARCHAR(20),
-    alert_severity TEXT,
-    overall_risk VARCHAR(20)
+    risk_category VARCHAR(20),
+    alerts_triggered TEXT,
+    inconsistencies TEXT
 );
 
 
