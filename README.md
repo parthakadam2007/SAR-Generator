@@ -1,8 +1,41 @@
-## SAR_Generator
+# Suspicious activity report (SAR) Generator (Hack-o-hire)
+
+<br>
+
+<img src="https://home.barclays/content/dam/home-barclays/images/generic/barclays-wordmark.svg">
+
+<br>
+
+<hr>
 
 Live : https://sar-generator.vercel.app/
+
+###  Inbox Page
+
+<img src="./docs/asset/AlertsInbox.png" style="border-radius: 12px;">
+
+
+### Case Investegation Page
+<img src="./docs/asset/AlertsInbox.png" style="border-radius: 12px;">
+
+### SAR Editor
+<img src="./docs/asset/Editior.png" style="border-radius: 12px;">
+
+<hr>
+<br>
+<br>
+
+
+# How it works (System architecture)
+<br>
+<img src="./docs/asset/system.png" style="border-radius: 12px;">
+
+
+
 ## Getting Started
 1. Clone the repository from GitHub:
+
+
 
 ```bash
 git clone https://github.com/parthakadam2007/SAR-Generator
@@ -29,30 +62,31 @@ create .env
 
 6. Configure Flyway
 add  flyway.user.toml to SAR-Generator\infra\database\SAR-Generator
-```
 
-6. go to backend/main_service/main/java/com/SAR_Generator/resources/application.properties
-```
+6. go tobackend/main_service/main/java/com/SAR_Generator/resources/application.properties
 spring.application.name=main_service
-# PostgreSQL database configuration
-# $env:DB_URL="jdbc:postgresql://localhost:5432/SAR_Generator"
+
+7. PostgreSQL database configuration
+
+```
+$env:DB_URL="jdbc:postgresql://localhost:5432/SAR_Generator"
 
 spring.datasource.url=${DB_URL}
 spring.datasource.username=postgres
 spring.datasource.password=1234
 spring.datasource.driver-class-name=org.postgresql.Driver
 
-# JPA configurations
+### JPA configurations
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.session.jdbc.initialize-schema=always
-
+```
 
 7. start all service 
 ```
 docker compose -f infra/docker/docker-compose.dev.yml up
 ```
-
+# 
 
 ```
 SAR-GENERATOR/
