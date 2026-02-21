@@ -40,6 +40,9 @@ async def create_case_analysis(data: dict):
                 data["risk"]["breakdown"]["transaction_risk"]
             )
 
+            if data.get("evidence_generated") == False:
+                return  # No evidence to save, exit early
+
             # Evidence
             for ev in data["evidence"]:
                 await conn.execute(
@@ -53,6 +56,8 @@ async def create_case_analysis(data: dict):
                 )
             print(f"SAR  generated for case_id {data['input']['case_id']}", flush=True)
 
+            if data["sar_generated"] == False:
+                return  # No SAR to save, exit early
 
             sar_id = None
             try:
