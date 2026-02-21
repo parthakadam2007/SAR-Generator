@@ -10,6 +10,7 @@ from contextlib import asynccontextmanager
 from database import connect_to_db, close_db_connection
 from services.kafka_consumer import start_consumer
 from routes.ai_route import sar_router
+from routes.graph_route import router as graph_router
 
 # @asynccontextmanager
 # async def lifespan(app: FastAPI):
@@ -63,6 +64,7 @@ app.include_router(health.router)
 # app.include_router(evidence_generator_routes.evidence_router)
 app.include_router(pipeline_router)
 app.include_router(sar_router)
+app.include_router(graph_router)
 
 # Routes
 @app.get("/")
