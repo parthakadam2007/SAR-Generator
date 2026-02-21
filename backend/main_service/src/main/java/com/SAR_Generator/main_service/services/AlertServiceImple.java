@@ -1,9 +1,11 @@
 package com.SAR_Generator.main_service.services;
 
 import com.SAR_Generator.main_service.dto.AlertDTO;
+import com.SAR_Generator.main_service.dto.TransactionDTO;
 import com.SAR_Generator.main_service.mapper.AlertMapper;
 import com.SAR_Generator.main_service.models.Alert;
 import com.SAR_Generator.main_service.repository.AlertRepository;
+import com.SAR_Generator.main_service.repository.TransactionRepository;
 import com.SAR_Generator.main_service.services.AlertService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,12 @@ public class AlertServiceImple implements AlertService {
     private AlertRepository alertRepository;
 
     @Autowired
+    private TransactionRepository transactionRepository;
+
+    @Autowired
     private AlertMapper alertMapper;
+
+
 
     @Override
     public List<AlertDTO> getAlerts() {
@@ -42,4 +49,19 @@ public class AlertServiceImple implements AlertService {
         }
     }
 
+
+    // @Override
+    // public List<TransactionDTO> getTransaction(){
+
+    //     try{
+
+
+    //     }catch(RuntimeException e){
+    //         System.err.println("Error while fetching Transaction: " + e.getMessage());
+
+    //         throw new RuntimeException("Failed to fetch Transaction. Please try later.");
+    //     }
+    //     return List<TransactionDTO>;
+
+    // }
 }
