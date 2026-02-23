@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import java.util.function.Function;
 
 @Component
@@ -54,7 +55,7 @@ public class JWTHelper {
     }
 
     //generate token for user
-    public String generateToken(UserDetails userDetails, Long userId) {
+    public String generateToken(UserDetails userDetails, UUID userId) {
         
         Map<String, Object> claims = new HashMap<>();
         System.out.println("Generating token for userId: " + userId);
