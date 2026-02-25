@@ -311,3 +311,75 @@
         "recommended_action": "Further investigation and enhanced monitoring of the subject's account and related activities are recommended."
     }
 }
+
+
+
+
+
+
+
+
+///Prompt
+Generate a highly realistic AML investigation case in STRICT JSON format.
+
+⚠️ Output ONLY valid JSON. No explanation text.
+
+Follow EXACTLY this schema:
+
+{
+  "case_id": "...",
+  "generated_at": "...",
+  "institution": "...",
+  "customer_kyc": { ... },
+  "account_profile": { ... },
+  "alerts": [ ... ],
+  "transactions": [ ... ]
+}
+
+Requirements:
+
+1. Make transaction network COMPLEX and GRAPH-DEPENDENT:
+   - Use at least 15–25 transactions.
+   - Include layering (3–5 hops).
+   - Include circular fund routing (money eventually returns to origin via different path).
+   - Include split-and-merge structuring (1 amount → split into 3 → merged again).
+   - Include pass-through behavior (same amount within 10 minutes).
+   - Include cross-border transfers via 2 jurisdictions.
+   - Include at least 2 intermediary shell accounts.
+   - Include 1 account that acts as both receiver and sender multiple times.
+
+2. Make it HARD for rule-based detection:
+   - Slightly vary amounts (299,800; 300,200; etc).
+   - Spread transactions across multiple hours.
+   - Use different channels (NEFT, IMPS, SWIFT, RTGS, Online).
+   - Mix legitimate-looking retail deposits with suspicious activity.
+   - Add noise transactions that look normal.
+
+3. Ensure the suspicious pattern is ONLY clearly visible if someone:
+   - Traverses graph paths
+   - Detects multi-hop fund flow
+   - Detects circular return to origin
+   - Detects structuring across accounts
+
+4. Customer profile:
+   - Medium income individual
+   - Declared income much lower than total suspicious volume
+   - Realistic Indian KYC details
+
+5. Alerts:
+   - Add 3–4 alerts:
+     - Layering Pattern
+     - Structured Deposits
+     - Rapid Movement
+     - Cross Border Escalation
+
+6. Ensure:
+   - All accounts referenced in transactions exist in flow
+   - Timestamps are chronological
+   - At least 1 transaction chain is 4 hops deep
+   - Total suspicious flow > 15x declared annual income
+
+7. Currency: INR
+8. Use realistic names and Indian geography.
+
+Output ONLY JSON.
