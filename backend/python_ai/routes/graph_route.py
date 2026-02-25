@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from services.neo4j_service import insert_case_data
-
-from services.case_analysis_service import analyze_case
+from services.graphtools.aml_engine import run_full_investigation
+# from services.case_analysis_service import analyze_case
 
 
 router = APIRouter()
@@ -15,11 +15,10 @@ async def ingest_case(case_json: dict):
 
 
 
+@router.get("/case/{case_id}/investigate")
+async def investigate_case(case_id: str):
 
-@router.get("/case/{case_id}/analysis")
-async def case_analysis(case_id: str):
-
-    result = analyze_case(case_id)
+    result = run_full_investigation(case_id)
 
     if not result:
         raise HTTPException(status_code=404, detail="Case not found")

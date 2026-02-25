@@ -353,3 +353,183 @@
     {"tx_id": "L4", "timestamp": "2026-02-10T11:06:00Z", "from_account": "ACC_C", "to_account": "HK_NODE_8821", "amount": 300000, "currency": "INR", "channel": "SWIFT", "country": "Hong Kong"}
   ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "case_id": "e6a58469-2c0d-4447-a5c8-a1451a6acd66",
+  "generated_at": "2026-02-11T12:05:00Z",
+  "institution": "Demo National Bank",
+
+  "customer_kyc": {
+    "customer_id": "CUST991200",
+    "full_name": "Rakesh Patel",
+    "dob": "1988-02-21",
+    "pan": "ZXCVB1234Q",
+    "aadhaar_last4": "1109",
+    "occupation": "Retail Shop Owner",
+    "declared_annual_income": 420000,
+    "risk_category": "Medium",
+    "address": "Ahmedabad, Gujarat, India",
+    "kyc_last_updated": "2024-06-10"
+  },
+
+  "account_profile": {
+    "account_number": "XXXX5521",
+    "account_type": "Savings",
+    "opened_date": "2017-04-11",
+    "average_monthly_balance": 65000,
+    "average_monthly_credit": 90000,
+    "average_monthly_debit": 88000,
+    "usual_transaction_pattern": "Small retail deposits"
+  },
+
+  "alerts": [
+    {
+      "alert_id": "ALERT_22001",
+      "type": "Layering Pattern",
+      "description": "Funds routed across multiple intermediary accounts",
+      "trigger_time": "2026-02-10T11:02:00Z",
+      "severity": "Critical"
+    },
+    {
+      "alert_id": "ALERT_22002",
+      "type": "Rapid International Transfer",
+      "description": "Funds exited to high-risk jurisdiction",
+      "trigger_time": "2026-02-10T11:15:00Z",
+      "severity": "High"
+    }
+  ],
+
+  "transactions": [
+
+    { "tx_id": "S1", "timestamp": "2026-02-09T09:00:00Z", "from_account": "CLIENT_1", "to_account": "XXXX5521", "amount": 9800, "currency": "INR", "channel": "NEFT", "country": "India" },
+    { "tx_id": "S2", "timestamp": "2026-02-09T09:10:00Z", "from_account": "CLIENT_2", "to_account": "XXXX5521", "amount": 9700, "currency": "INR", "channel": "NEFT", "country": "India" },
+    { "tx_id": "S3", "timestamp": "2026-02-09T09:20:00Z", "from_account": "CLIENT_3", "to_account": "XXXX5521", "amount": 9900, "currency": "INR", "channel": "NEFT", "country": "India" },
+    { "tx_id": "S4", "timestamp": "2026-02-09T09:30:00Z", "from_account": "CLIENT_4", "to_account": "XXXX5521", "amount": 9600, "currency": "INR", "channel": "NEFT", "country": "India" },
+    { "tx_id": "S5", "timestamp": "2026-02-09T09:40:00Z", "from_account": "CLIENT_5", "to_account": "XXXX5521", "amount": 9500, "currency": "INR", "channel": "NEFT", "country": "India" },
+
+    { "tx_id": "PT1", "timestamp": "2026-02-10T10:50:00Z", "from_account": "ACC_A", "to_account": "XXXX5521", "amount": 300000, "currency": "INR", "channel": "NEFT", "country": "India" },
+    { "tx_id": "PT2", "timestamp": "2026-02-10T10:55:00Z", "from_account": "XXXX5521", "to_account": "ACC_B", "amount": 300000, "currency": "INR", "channel": "IMPS", "country": "India" },
+
+    { "tx_id": "L1", "timestamp": "2026-02-10T11:00:00Z", "from_account": "ACC_B", "to_account": "ACC_C", "amount": 300000, "currency": "INR", "channel": "IMPS", "country": "India" },
+    { "tx_id": "L2", "timestamp": "2026-02-10T11:05:00Z", "from_account": "ACC_C", "to_account": "ACC_D", "amount": 300000, "currency": "INR", "channel": "IMPS", "country": "India" },
+    { "tx_id": "L3", "timestamp": "2026-02-10T11:10:00Z", "from_account": "ACC_D", "to_account": "HK_NODE_8821", "amount": 300000, "currency": "INR", "channel": "SWIFT", "country": "Hong Kong" },
+
+    { "tx_id": "CB1", "timestamp": "2026-02-10T11:20:00Z", "from_account": "XXXX5521", "to_account": "US_ENTITY_1", "amount": 280000, "currency": "INR", "channel": "SWIFT", "country": "USA" },
+
+    { "tx_id": "HV1", "timestamp": "2026-02-10T12:00:00Z", "from_account": "CLIENT_6", "to_account": "XXXX5521", "amount": 520000, "currency": "INR", "channel": "NEFT", "country": "India" },
+    { "tx_id": "HV2", "timestamp": "2026-02-10T12:05:00Z", "from_account": "CLIENT_7", "to_account": "XXXX5521", "amount": 510000, "currency": "INR", "channel": "NEFT", "country": "India" },
+    { "tx_id": "HV3", "timestamp": "2026-02-10T12:10:00Z", "from_account": "CLIENT_8", "to_account": "XXXX5521", "amount": 530000, "currency": "INR", "channel": "NEFT", "country": "India" },
+    { "tx_id": "HV4", "timestamp": "2026-02-10T12:15:00Z", "from_account": "CLIENT_9", "to_account": "XXXX5521", "amount": 540000, "currency": "INR", "channel": "NEFT", "country": "India" },
+    { "tx_id": "HV5", "timestamp": "2026-02-10T12:20:00Z", "from_account": "CLIENT_10", "to_account": "XXXX5521", "amount": 550000, "currency": "INR", "channel": "NEFT", "country": "India" },
+
+    { "tx_id": "DP1", "timestamp": "2026-02-10T12:25:00Z", "from_account": "XXXX5521", "to_account": "LOCAL_VENDOR", "amount": 500000, "currency": "INR", "channel": "RTGS", "country": "India" },
+    { "tx_id": "DP2", "timestamp": "2026-02-10T12:30:00Z", "from_account": "XXXX5521", "to_account": "INVESTMENT_ACC", "amount": 450000, "currency": "INR", "channel": "Online", "country": "India" }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"case_id": "9f3c2a1b-7d44-4e2f-9b77-2ac91f6e8c10",
+"generated_at": "2026-02-25T14:10:00Z",
+"institution": "Suryodaya National Bank",
+"customer_kyc": {
+"customer_id": "CUST774512",
+"full_name": "Amit Kulkarni",
+"dob": "1990-08-14",
+"pan": "AKLPK8291R",
+"aadhaar_last4": "4821",
+"occupation": "Mobile Accessories Shop Owner",
+"declared_annual_income": 480000,
+"risk_category": "Medium",
+"address": "Karve Nagar, Pune, Maharashtra, India",
+"kyc_last_updated": "2025-05-12"
+},
+"account_profile": {
+"account_number": "SBIN77451209",
+"account_type": "Savings",
+"opened_date": "2018-03-22",
+"average_monthly_balance": 72000,
+"average_monthly_credit": 95000,
+"average_monthly_debit": 91000,
+"usual_transaction_pattern": "Small retail UPI and NEFT deposits below INR 20,000"
+},
+"alerts": [
+{
+"alert_id": "ALERT_31001",
+"type": "Structured Deposits",
+"description": "Multiple credits just below reporting threshold within short duration",
+"trigger_time": "2026-02-24T10:15:00Z",
+"severity": "High"
+},
+{
+"alert_id": "ALERT_31002",
+"type": "Layering Pattern",
+"description": "Funds routed through multiple intermediary and shell entities",
+"trigger_time": "2026-02-24T11:05:00Z",
+"severity": "Critical"
+},
+{
+"alert_id": "ALERT_31003",
+"type": "Rapid Movement",
+"description": "High-value funds transferred within minutes of receipt",
+"trigger_time": "2026-02-24T11:20:00Z",
+"severity": "High"
+},
+{
+"alert_id": "ALERT_31004",
+"type": "Cross Border Escalation",
+"description": "Funds moved to Hong Kong and UAE through layered transactions",
+"trigger_time": "2026-02-24T12:10:00Z",
+"severity": "Critical"
+}
+],
+"transactions": [
+{ "tx_id": "T01", "timestamp": "2026-02-24T09:05:00Z", "from_account": "RETAIL_CUST_01", "to_account": "SBIN77451209", "amount": 12500, "currency": "INR", "channel": "UPI", "country": "India" },
+{ "tx_id": "T02", "timestamp": "2026-02-24T09:22:00Z", "from_account": "RETAIL_CUST_02", "to_account": "SBIN77451209", "amount": 18200, "currency": "INR", "channel": "UPI", "country": "India" },
+{ "tx_id": "T03", "timestamp": "2026-02-24T10:00:00Z", "from_account": "CASH_DEPOSIT_BRANCH_PUNE", "to_account": "SBIN77451209", "amount": 299800, "currency": "INR", "channel": "Cash", "country": "India" },
+{ "tx_id": "T04", "timestamp": "2026-02-24T10:07:00Z", "from_account": "CASH_DEPOSIT_BRANCH_PUNE", "to_account": "SBIN77451209", "amount": 300200, "currency": "INR", "channel": "Cash", "country": "India" },
+{ "tx_id": "T05", "timestamp": "2026-02-24T10:14:00Z", "from_account": "CASH_DEPOSIT_BRANCH_PUNE", "to_account": "SBIN77451209", "amount": 298900, "currency": "INR", "channel": "Cash", "country": "India" },
+{ "tx_id": "T06", "timestamp": "2026-02-24T10:20:00Z", "from_account": "SBIN77451209", "to_account": "SHELL_ALPHA_TRADERS", "amount": 299750, "currency": "INR", "channel": "IMPS", "country": "India" },
+{ "tx_id": "T07", "timestamp": "2026-02-24T10:26:00Z", "from_account": "SBIN77451209", "to_account": "SHELL_BETA_EXPORTS", "amount": 300150, "currency": "INR", "channel": "IMPS", "country": "India" },
+{ "tx_id": "T08", "timestamp": "2026-02-24T10:31:00Z", "from_account": "SBIN77451209", "to_account": "SHELL_GAMMA_SERVICES", "amount": 298700, "currency": "INR", "channel": "IMPS", "country": "India" },
+{ "tx_id": "T09", "timestamp": "2026-02-24T10:36:00Z", "from_account": "SHELL_ALPHA_TRADERS", "to_account": "MULE_ACCOUNT_DELHI", "amount": 299750, "currency": "INR", "channel": "NEFT", "country": "India" },
+{ "tx_id": "T10", "timestamp": "2026-02-24T10:42:00Z", "from_account": "SHELL_BETA_EXPORTS", "to_account": "MULE_ACCOUNT_DELHI", "amount": 300150, "currency": "INR", "channel": "NEFT", "country": "India" },
+{ "tx_id": "T11", "timestamp": "2026-02-24T10:48:00Z", "from_account": "SHELL_GAMMA_SERVICES", "to_account": "MULE_ACCOUNT_DELHI", "amount": 298700, "currency": "INR", "channel": "NEFT", "country": "India" },
+{ "tx_id": "T12", "timestamp": "2026-02-24T11:00:00Z", "from_account": "MULE_ACCOUNT_DELHI", "to_account": "HK_BRIDGE_8821", "amount": 898600, "currency": "INR", "channel": "SWIFT", "country": "Hong Kong" },
+{ "tx_id": "T13", "timestamp": "2026-02-24T11:25:00Z", "from_account": "HK_BRIDGE_8821", "to_account": "UAE_NODE_4411", "amount": 890000, "currency": "INR", "channel": "SWIFT", "country": "United Arab Emirates" },
+{ "tx_id": "T14", "timestamp": "2026-02-24T11:50:00Z", "from_account": "UAE_NODE_4411", "to_account": "SHELL_ALPHA_TRADERS", "amount": 882500, "currency": "INR", "channel": "SWIFT", "country": "India" },
+{ "tx_id": "T15", "timestamp": "2026-02-24T12:05:00Z", "from_account": "SHELL_ALPHA_TRADERS", "to_account": "SBIN77451209", "amount": 440000, "currency": "INR", "channel": "RTGS", "country": "India" },
+{ "tx_id": "T16", "timestamp": "2026-02-24T12:12:00Z", "from_account": "SBIN77451209", "to_account": "LOCAL_SUPPLIER_PUNE", "amount": 38000, "currency": "INR", "channel": "NEFT", "country": "India" },
+{ "tx_id": "T17", "timestamp": "2026-02-24T12:20:00Z", "from_account": "SBIN77451209", "to_account": "MULE_ACCOUNT_DELHI", "amount": 435000, "currency": "INR", "channel": "IMPS", "country": "India" },
+{ "tx_id": "T18", "timestamp": "2026-02-24T12:27:00Z", "from_account": "MULE_ACCOUNT_DELHI", "to_account": "HK_BRIDGE_8821", "amount": 435000, "currency": "INR", "channel": "SWIFT", "country": "Hong Kong" },
+{ "tx_id": "T19", "timestamp": "2026-02-24T13:10:00Z", "from_account": "RETAIL_CUST_03", "to_account": "SBIN77451209", "amount": 15600, "currency": "INR", "channel": "UPI", "country": "India" },
+{ "tx_id": "T20", "timestamp": "2026-02-24T14:05:00Z", "from_account": "SHELL_BETA_EXPORTS", "to_account": "SBIN77451209", "amount": 210000, "currency": "INR", "channel": "RTGS", "country": "India" }
+]
+}
